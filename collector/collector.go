@@ -28,8 +28,10 @@ func run() {
 	c := rpc.NewAPMClient(conn)
 
 	for {
-		cpustatus := GetCpuStatus()
-		c.SendCpuStatus(context.Background(), &cpustatus)
+		cpu := GetCpuStatus()
+		memory := GetMemoryStatus()
+		c.SendCpuStatus(context.Background(), &cpu)
+		c.SendMemoryStatus(context.Background(), &memory)
 		time.Sleep(time.Second * 5)
 	}
 }

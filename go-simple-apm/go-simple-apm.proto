@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-
 service  APM {
   rpc SendCpuStatus (CpuStatus) returns (Result) {}
+  rpc SendMemoryStatus (MemoryStatus) returns (Result) {}
 }
 
 message Result {
@@ -13,4 +13,11 @@ message CpuStatus {
   string modelname = 1;
   int32 cores = 2;
   repeated double status = 3;
+}
+
+message MemoryStatus {
+  uint64 total = 1;
+  uint64 free = 2;
+  uint64 used = 3;
+  double usedPercent = 4;
 }

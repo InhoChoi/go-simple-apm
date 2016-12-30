@@ -13,3 +13,8 @@ func (h *Handler) SendCpuStatus(ctx context.Context, in *rpc.CpuStatus) (*rpc.Re
 	fmt.Println(in)
 	return &rpc.Result{Result: true}, nil
 }
+
+func (h *Handler) SendMemoryStatus(ctx context.Context, in *rpc.MemoryStatus) (*rpc.Result, error) {
+	fmt.Println(in)
+	return &rpc.Result{Result: true}, nil
+}
